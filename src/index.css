@@ -1,0 +1,134 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 240 10% 3.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 240 10% 3.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 240 10% 3.9%;
+    --primary: 262.1 83.3% 57.8%;
+    --primary-foreground: 210 20% 98%;
+    --secondary: 220 14.3% 95.9%;
+    --secondary-foreground: 220.9 39.3% 11%;
+    --muted: 220 14.3% 95.9%;
+    --muted-foreground: 220 8.9% 46.1%;
+    --accent: 220 14.3% 95.9%;
+    --accent-foreground: 220.9 39.3% 11%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 20% 98%;
+    --border: 220 13% 91%;
+    --input: 220 13% 91%;
+    --ring: 262.1 83.3% 57.8%;
+    --radius: 0.75rem;
+  }
+ 
+  .dark {
+    --background: 240 10% 3.9%;
+    --foreground: 210 20% 98%;
+    --card: 240 10% 3.9%;
+    --card-foreground: 210 20% 98%;
+    --popover: 240 10% 3.9%;
+    --popover-foreground: 210 20% 98%;
+    --primary: 263.4 70% 50.4%;
+    --primary-foreground: 210 20% 98%;
+    --secondary: 240 3.7% 15.9%;
+    --secondary-foreground: 210 20% 98%;
+    --muted: 240 3.7% 15.9%;
+    --muted-foreground: 240 5% 64.9%;
+    --accent: 240 3.7% 15.9%;
+    --accent-foreground: 210 20% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 20% 98%;
+    --border: 240 3.7% 15.9%;
+    --input: 240 3.7% 15.9%;
+    --ring: 240 4.9% 83.9%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+}
+
+/* Custom animations */
+@keyframes pulse-subtle {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.01);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes visualizer-bar {
+  0%, 100% {
+    height: 3px;
+  }
+  50% {
+    height: 20px;
+  }
+}
+
+.animate-pulse-subtle {
+  animation: pulse-subtle 3s infinite ease-in-out;
+}
+
+.album-shadow {
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+/* Visualizer animations with different heights */
+.animate-visualizer-1 {
+  animation: visualizer-bar 0.8s ease-in-out infinite;
+  height: 15px;
+}
+
+.animate-visualizer-2 {
+  animation: visualizer-bar 1.0s ease-in-out infinite;
+  height: 18px;
+}
+
+.animate-visualizer-3 {
+  animation: visualizer-bar 1.2s ease-in-out infinite;
+  height: 22px;
+}
+
+.animate-visualizer-4 {
+  animation: visualizer-bar 1.0s ease-in-out infinite;
+  height: 18px;
+}
+
+.animate-visualizer-5 {
+  animation: visualizer-bar 0.8s ease-in-out infinite;
+  height: 15px;
+}
+
+/* Make the main content area have padding to account for sidebar */
+@media (min-width: 768px) {
+  .main-content {
+    padding-left: 16rem;
+  }
+}
+
+/* Custom keyboard shortcut styling */
+.keyboard-shortcut {
+  @apply px-2 py-1 rounded bg-secondary text-xs font-mono border;
+}
+
+/* Add room for the footer player at the bottom of scrollable areas */
+.pb-footer {
+  padding-bottom: 5rem;
+}
